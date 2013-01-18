@@ -71,7 +71,7 @@ class InventoryHistoriesController extends AppController {
             $conditions = array();
             if ($data['fullTextQuery'] == null) {
                 $countQuery = "SELECT * FROM (SELECT Row_Number() OVER (ORDER BY ";
-                $query = "SELECT TOP {$data['resultCount']} * FROM (SELECT Row_Number() OVER (ORDER BY ";
+                $query = "SELECT * FROM (SELECT Row_Number() OVER (ORDER BY ";
                 $fieldCount = count($data['sortFields']);
                 $i = 1;
                 foreach ($data['sortFields'] as $sortField => $direction) {
@@ -113,7 +113,7 @@ class InventoryHistoriesController extends AppController {
 
                     $i++;
                 }
-                $query .= " from InventoryHistoryDisplayViewIN) _tmpInlineView WHERE RowNumber >= $start ";
+                $query .= " from InventoryHistoryDisplayViewIN) _tmpInlineView WHERE 1=1 ";
                 $countQuery .= " from InventoryHistoryDisplayViewIN) _tmpInlineView WHERE 1=1 ";
                 if (isset($data['fieldFilters'])) {
                     foreach ($data['fieldFilters'] as $field => $filter) {
@@ -124,18 +124,12 @@ class InventoryHistoriesController extends AppController {
                         $countQuery .= " AND $field LIKE('%$filter%') ";
                     }
                 }
-//                if (isset($data['permFilters'])) {
-//                    foreach ($data['permFilters'] as $field => $filter) {
-//                        $conditions["$field LIKE"] = "%$filter%";
-//                        $field = explode('.', $field);
-//                        $field = $field[1];
-//                        $query .= " AND $field LIKE('%$filter%') ";
-//                    }
-//                }
+
                 $counter = $pdo->query($countQuery);
                 $totalRecords = count($counter->fetchAll());
                 $items = $pdo->query($query);
                 $items = $items->fetchAll();
+                $items = $this->trimArray($items, $data['page'], $data['resultCount']);
             } else {
 
                 $query = "SELECT * FROM (SELECT Row_Number() OVER (ORDER BY ";
@@ -184,14 +178,7 @@ class InventoryHistoriesController extends AppController {
                         $query .= " AND $field LIKE('%$filter%') ";
                     }
                 }
-//                if (isset($data['permFilters'])) {
-//                    foreach ($data['permFilters'] as $field => $filter) {
-//                        $conditions["$field LIKE"] = "%$filter%";
-//                        $field = explode('.', $field);
-//                        $field = $field[1];
-//                        $query .= " AND $field LIKE('%$filter%') ";
-//                    }
-//                }
+
                 $items = $pdo->query($query);
                 $items = $items->fetchAll();
                 $queryString = Sanitize::escape($data['fullTextQuery']);

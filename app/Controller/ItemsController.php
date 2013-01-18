@@ -97,10 +97,8 @@ class ItemsController extends AppController {
 
                     $i++;
                 }
+                $query .= " from WsvInventoryIndex) _tmpInlineView WHERE 1=1 ";
                 $countQuery = $query;
-                $query .= " from WsvInventoryIndex) _tmpInlineView WHERE RowNumber >= $start ";
-                
-                $countQuery .= " from WsvInventoryIndex) _tmpInlineView WHERE 1=1 ";
                 if (isset($data['fieldFilters'])) {
                     foreach ($data['fieldFilters'] as $field => $filter) {
                         $conditions["$field LIKE"] = "%$filter%";

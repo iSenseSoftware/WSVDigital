@@ -64,7 +64,7 @@ unset($items['Pager']);
                     if (strtotime($item[0]['TransLineItemUD6']) == 0) {
                         echo '<td>N/A</td>';
                     } else {
-                        if (strtotime($item[0]['TransLineItemUD6']) < Time()) {
+                        if (strtotime($item[0]['TransLineItemUD6']) + 86400 < Time()) {
                             echo "<td><span class='expired'>" . date('M Y', strtotime($item[0]['TransLineItemUD6'])) . '</span></td>';
                         } else {
                             echo '<td>' . date('M Y', strtotime($item[0]['TransLineItemUD6'])) . '</td>';
@@ -76,8 +76,6 @@ unset($items['Pager']);
                         break;
                 }
                 ?>
-
-
             <? } ?>
             <td>
                 <?
