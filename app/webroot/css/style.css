@@ -1,0 +1,87 @@
+
+/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+
+#chemical_list th,td {
+  border:1px solid black;
+  text-align:center;
+  padding:0.5em;
+  font-size:1em;
+}
+
+#chemical_list a {
+  text-decoration:underline;
+  color:#000000;
+}
+
+#stock_inventory_list {
+  max-width:960px;
+}
+
+#stock_inventory_list th,td {
+  border:1px solid black;
+  text-align:center;
+  padding:0.2em;
+  font-size:1em;
+}
+
+#stock_inventory_list a {
+  text-decoration:underline;
+  color:#000000;
+}
+
+.H, .F, .P, .PPE, .CH {
+  font-weight:bold;
+}
+
+.H, .F, .P {
+  color:white;
+}
+
+.H {
+  background:blue;
+}
+
+.F {
+  background:red;
+}
+
+.P {
+  background:orange;
+}
+
+/* Content */
+
+#chem_content {
+  float: left;
+  width: 940px;
+  padding: 0px 0px 0px 0px;
+}
+
+#stock_content {
+  float: left;
+  width: 940px;
+  padding: 0px 0px 0px 0px;
+}
+
+#filter_bar a{
+  padding-left:2em;
+  padding-right:2em;
+}
+
+#filter_bar{
+  text-align:center;
+}
+
+
+#hazcom_label{
+  display:none;
+}
+
+label{
+    padding:0.5em;
+}

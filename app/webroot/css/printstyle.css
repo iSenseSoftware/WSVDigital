@@ -1,0 +1,58 @@
+/* 
+    Document   : printstyle
+    Created on : Jan 19, 2012, 3:48:03 PM
+    Author     : etbmx
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+  display: block;
+}
+
+body{
+  margin:0in;
+  padding:0in;
+  padding-top:0.0675in;
+  
+  text-align:left;
+}
+
+#wrapper{
+  display:none;
+}
+
+@page{
+  size:2.125in 2.75in;
+  margin:0in;
+  padding:0in;
+}
+
+h2{
+  display:none;
+}
+
+#hmis_label{
+  /*-moz-transform:rotate(90deg);*/
+  font-family:Arial;
+  font-size:8pt;
+  margin:0in;
+  padding:0;
+   
+}
+
+table{
+  width:100%;
+  padding-left:0.25in;
+}
+
+td{
+  font-family:Arial;
+  font-size:8pt;
+}
+
