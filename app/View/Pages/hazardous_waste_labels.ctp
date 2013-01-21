@@ -1,6 +1,6 @@
 <h1>Labels for hazardous waste</h1>
 <p>
-The labels below are in .doc format and are designed to be printed on Avery label 6464
+The labels below are in .doc format and are designed to be printed on Avery label 6464 or 8164
 </p>
 <p>
 <ul>
