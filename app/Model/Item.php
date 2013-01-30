@@ -38,7 +38,7 @@ class Item extends AppModel {
     public function createQR() {
         $itemCode = $this->data['Item']['ItemCode'];
         unlink("img/qr$itemCode.png");
-        QRcode::png("http://huswivc0219/cake_2_2/items/mobileView/$itemCode", "img/qr$itemCode.png");
+        QRcode::png("http://huswivc0219/cake/items/mobileView/$itemCode", "img/qr$itemCode.png");
     }
     
     public function initialQRCreation(){
